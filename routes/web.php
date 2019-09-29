@@ -17,3 +17,4 @@ $router->get('/', function () use ($router) {
 
 
 $router->get('/api/cars', 'CarController@list');
+$router->get('/api/search/cars', 'CarController@search');
