@@ -53,9 +53,32 @@ class CarController extends Controller
 
         $cars = [];
 
-        foreach ($results as $car) {
-            array_push($cars, $car->find('.card-title', 0)->plaintext ?? '');
+        foreach ($results as $key => $value) {
+            $cars[ $value->find('.card-actions ul li  a', 0)->attr['data-id'] ?? ''] =  $value->find('.card-title', 0)->plaintext ?? '';
         }
         return response()->json($cars);
+    }
+
+    public function searchById(Request $request, $id)
+    {
+        $params = $request->all();
+
+        $params = array_values($params);
+
+        $params = implode("/", $params);
+
+        $html = new \Yangqi\Htmldom\Htmldom();
+        $results = $html->file_get_html('https://seminovos.com.br/' .$params, false, null, 0);
+
+        $results = $html->find('.list-of-cards');
+
+        $detail = [];
+
+        foreach ($results as $key => $value) {
+            if ($value->find('.card-actions ul li  a', 0)->attr['data-id'] == $id) {
+                $detail[$value->find('.card-info ul li', 0)->attr['title']] = $value->find('.card-info ul li i', 0)->plaintext;
+            }
+        }
+        return response()->json($detail);
     }
 }
