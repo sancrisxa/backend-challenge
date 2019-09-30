@@ -10,10 +10,29 @@ class CarTest extends TestCase
      *
      * @return void
      */
-    public function testAllcars()
+    public function testList()
     {
-        $this->get('/api/cars');
+        $this->get('/api/v1/cars');
 
         $this->assertResponseOk();
+
+    }
+
+    public function testSearch()
+    {
+        $this->get('/api/v1/search/cars?marca=fiat');
+
+        $this->assertResponseOk();
+        $this->assertNotEmpty($this->response->content());
+        
+    }
+
+    public function testSearchById()
+    {
+        $this->get('/api/v1/search/cars/2587515?marca=fiat');
+
+        $this->assertResponseOk();
+
+        $this->assertNotEmpty($this->response->content());
     }
 }

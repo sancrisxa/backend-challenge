@@ -16,6 +16,6 @@ $router->get('/', function () use ($router) {
 });
 
 
-$router->get('/api/cars', 'CarController@list');
-$router->get('/api/search/cars', 'CarController@search');
-$router->get('/api/search/{id}', 'CarController@searchById');
+$router->get('/api/v1/cars', 'CarController@list');
+$router->get('/api/v1/search/cars', 'CarController@search');
+$router->get('/api/v1/search/cars/{id}', 'CarController@searchById');

@@ -72,13 +72,17 @@ class CarController extends Controller
 
         $results = $html->find('.list-of-cards');
 
-        $detail = [];
+        $details = [];
 
         foreach ($results as $key => $value) {
             if ($value->find('.card-actions ul li  a', 0)->attr['data-id'] == $id) {
-                $detail[$value->find('.card-info ul li', 0)->attr['title']] = $value->find('.card-info ul li i', 0)->plaintext;
+                $item['ano']   = $value->find('.list-features li', 0)->plaintext;
+                $item['kilometragem'] = $value->find('.list-features li', 1)->plaintext;
+                $item['cambio']       = $value->find('.list-features li', 2)->plaintext;
+
+                $details[] = $item;
             }
         }
-        return response()->json($detail);
+        return response()->json($details);
     }
 }

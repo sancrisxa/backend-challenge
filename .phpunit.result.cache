@@ -1,1 +1,1 @@
-C:37:"PHPUnit\Runner\DefaultTestResultCache":152:{a:2:{s:7:"defects";a:1:{s:20:"CarTest::testAllcars";i:3;}s:5:"times";a:2:{s:24:"ExampleTest::testExample";d:0.003;s:20:"CarTest::testAllcars";d:0.059;}}}
+C:37:"PHPUnit\Runner\DefaultTestResultCache":323:{a:2:{s:7:"defects";a:3:{s:20:"CarTest::testAllcars";i:3;s:23:"CarTest::testSearchById";i:4;s:17:"CarTest::testList";i:3;}s:5:"times";a:5:{s:24:"ExampleTest::testExample";d:0.005;s:20:"CarTest::testAllcars";d:0.059;s:17:"CarTest::testList";d:1.218;s:19:"CarTest::testSearch";d:1.176;s:23:"CarTest::testSearchById";d:1.293;}}}
